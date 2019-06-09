@@ -5,14 +5,14 @@
             <div class="col-md-12">
                 <div class="card card-plain">
                     <div class="card-header card-header-danger">
-                        <h4 class="card-title mt-0"> Table on Plain Background</h4>
-                        <p class="card-category"> Here is a subtitle for this table</p>
+                        <h4 class="card-title mt-0"> Inventario General de Productos</h4>
+                        <p class="card-category"> Productos que actualmente se encuentran dentro del sistema</p>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <div class="example-header">
                                 <mat-form-field>
-                                    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+                                    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Busqueda">
                                 </mat-form-field>
                             </div>
 
@@ -21,27 +21,27 @@
                                 <mat-table [dataSource]="dataSource" matSort>
 
                                     <!-- ID Column -->
-                                    <ng-container matColumnDef="id">
+                                    <ng-container matColumnDef="Id">
                                         <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
-                                        <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+                                        <mat-cell *matCellDef="let row"> {{row.Id}} </mat-cell>
                                     </ng-container>
 
                                     <!-- Progress Column -->
-                                    <ng-container matColumnDef="progress">
-                                        <mat-header-cell *matHeaderCellDef mat-sort-header> Progress </mat-header-cell>
-                                        <mat-cell *matCellDef="let row"> {{row.progress}}% </mat-cell>
+                                    <ng-container matColumnDef="Descripcion">
+                                        <mat-header-cell *matHeaderCellDef mat-sort-header> Descripcion </mat-header-cell>
+                                        <mat-cell *matCellDef="let row"> {{row.Descripcion}} </mat-cell>
                                     </ng-container>
 
                                     <!-- Name Column -->
-                                    <ng-container matColumnDef="name">
-                                        <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
-                                        <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
+                                    <ng-container matColumnDef="Nombre">
+                                        <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>
+                                        <mat-cell *matCellDef="let row"> {{row.Nombre}} </mat-cell>
                                     </ng-container>
 
                                     <!-- Color Column -->
-                                    <ng-container matColumnDef="color">
-                                        <mat-header-cell *matHeaderCellDef mat-sort-header> Color </mat-header-cell>
-                                        <mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.color}}
+                                    <ng-container matColumnDef="Stock">
+                                        <mat-header-cell *matHeaderCellDef mat-sort-header> Stock </mat-header-cell>
+                                        <mat-cell *matCellDef="let row" > {{row.Stock}}
                                         </mat-cell>
                                     </ng-container>
 
