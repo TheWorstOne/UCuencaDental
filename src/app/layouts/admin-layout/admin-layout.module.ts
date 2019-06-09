@@ -17,16 +17,24 @@ import {
   MatInputModule,
   MatRippleModule,
   MatTooltipModule,
+  MatTableModule,
+  MatPaginatorModule,
+  MatSortModule,
 } from '@angular/material';
+
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild(AdminLayoutRoutes),
     FormsModule,
+    ReactiveFormsModule,
     MatButtonModule,
     MatRippleModule,
     MatInputModule,
     MatTooltipModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
   ],
   declarations: [
     DashboardComponent,
