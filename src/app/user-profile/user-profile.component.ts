@@ -9,6 +9,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class UserProfileComponent implements OnInit {
 
+
+  personaEntrega: string = "";
+
   products = [{
     "categoria": 0,
     "id": 0,

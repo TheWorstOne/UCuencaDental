@@ -44,7 +44,7 @@ export class TableListComponent implements OnInit {
     this.dataSource = new MatTableDataSource();
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
-    this.getEquipos()
+    this.getInsumos();
   }
 
   ngOnInit() {
@@ -72,6 +72,42 @@ export class TableListComponent implements OnInit {
     });
   }
 
+  getInstrumentos() {
+    this.rest.getInstrumentos().subscribe((data: {}) => {
+      this.dataSource.data = data['data']
+    });
+  }
+
+  getInsumos() {
+    this.rest.getInsumos().subscribe((data: {}) => {
+      this.dataSource.data = data['data']
+    });
+  }
+
+  controlInventario() {
+    this.rest.controlInventario({"nombre": "Inventario "+new Date(),
+                                 "descripcion": "",
+                                 "observacion": ""
+                                            }).subscribe((result) => {
+      console.log(result);
+    }, (err) => {
+      console.log(err);
+    });
+  }
+
+  refresh(){
+    this.displayedColumns = this.productColumns[this.inventarioItem];
+    // Assign the data to the data source for the table to render
+    this.dataSource = new MatTableDataSource();
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+    if (this.inventarioItem==="Equipos")
+      this.getEquipos()
+    if (this.inventarioItem==="Instrumentos")
+      this.getInstrumentos()
+    if (this.inventarioItem==="Insumos")
+      this.getInsumos()
+  }
 }
 
 

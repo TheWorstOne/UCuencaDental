@@ -12,7 +12,7 @@
                                     </mat-panel-title>
                                 </mat-expansion-panel-header>
                                 <mat-radio-group class="example-radio-group" [(ngModel)]="inventarioItem">
-                                    <mat-radio-button color="warn" class="example-radio-button" *ngFor="let inventario of inventarios" [value]="inventario">
+                                    <mat-radio-button color="warn" class="example-radio-button" *ngFor="let inventario of inventarios" [value]="inventario" (click)="refresh()">
                                         {{inventario}}
                                     </mat-radio-button>
                                 </mat-radio-group>
@@ -106,6 +106,9 @@
                                 <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
                             </div>
                         </div>
+
+                        <button mat-raised-button type="submit" class="btn btn-primary col-md-12" (click)="controlInventario()" >Realizar Control Inventario</button>
+
                     </div>
                 </div>
             </div>

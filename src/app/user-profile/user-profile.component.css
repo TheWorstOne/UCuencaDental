@@ -4,6 +4,9 @@
 .card-product {
     border-bottom: 1.5px solid #eaeaea;
     margin-bottom: 25px;
+    background-color: #EDEFF8;
+    margin-left: 3px;
+    max-width: 99.9%;
 }
 
 .card-expansion {

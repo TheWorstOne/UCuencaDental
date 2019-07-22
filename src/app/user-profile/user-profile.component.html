@@ -9,6 +9,9 @@
                   </div>
                   <div class="card-body">
                       <form>
+                          <mat-form-field>
+                              <input name="PersonaEntrega" matInput placeholder="Nombre de la persona que entrega la orden" [(ngModel)]="personaEntrega" required>
+                          </mat-form-field>
                           <button mat-raised-button type="submit" class="btn btn-primary col-md-12" (click)="enviarProductos()" >Ingresar todos los Productos</button>
                           <div class="row card-product" *ngFor="let product of products; let rowIndex = index">
                             <div class="col-md-10">

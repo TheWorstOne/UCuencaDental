@@ -32,10 +32,22 @@ export class RestService {
       map(this.extractData));
   }
 
+  getInsumos(): Observable<any> {
+    return this.http.get(endpoint + 'insumos/all').pipe(
+      map(this.extractData));
+  }
+
+  getInstrumentos(): Observable<any> {
+    return this.http.get(endpoint + 'instrumentos/all').pipe(
+      map(this.extractData));
+  }
+
   getInventarios(): Observable<any> {
     return this.http.get(endpoint + 'inventarios/control/all').pipe(
       map(this.extractData));
   }
+
+  
 
   setProducts (products): Observable<any> {
     console.log(products);
@@ -44,6 +56,15 @@ export class RestService {
       catchError(this.handleError<any>('generaProducts'))
     );
   }
+
+  controlInventario (inventario): Observable<any> {
+    console.log(inventario);
+    return this.http.post<any>(endpoint + 'inventarios/control/new', JSON.stringify(inventario), httpOptions).pipe(
+      tap((inventario) => console.log(`generate Inventory w/ id=${inventario}`)),
+      catchError(this.handleError<any>('generaInventario'))
+    );
+  }
+  
 
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

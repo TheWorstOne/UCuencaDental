@@ -121,6 +121,6 @@ export class NavbarComponent implements OnInit {
               return this.listTitles[item].title;
           }
       }
-      return 'Sistema para el Consultorio Odontológico de la Universidad de Cuenca - SICOUCu';
+      return 'Sistema para el Consultorio Odontológico de la Universidad de Cuenca - SICOUCu V0.5 (Alfa) 2019';
     }
 }
