@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
+import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
+import { RestService } from '../rest.service';
+import { ActivatedRoute, Router } from '@angular/router';
+
 declare var $: any;
 @Component({
   selector: 'app-notifications',
@@ -7,36 +11,48 @@ declare var $: any;
 })
 export class NotificationsComponent implements OnInit {
 
-  constructor() { }
-  showNotification(from, align){
-      const type = ['','info','success','warning','danger'];
+  panelOpenState: boolean = false;
 
-      const color = Math.floor((Math.random() * 4) + 1);
+  displayedColumns = ['id', 'nombre', 'descripcion', 'observacion','fecha_creacion', 'persona_realiza'];
 
-      $.notify({
-          icon: "notifications",
-          message: "Welcome to <b>Material Dashboard</b> - a beautiful freebie for every web developer."
+  dataSource: MatTableDataSource<any>;
 
-      },{
-          type: type[color],
-          timer: 4000,
-          placement: {
-              from: from,
-              align: align
-          },
-          template: '<div data-notify="container" class="col-xl-4 col-lg-4 col-11 col-sm-4 col-md-4 alert alert-{0} alert-with-icon" role="alert">' +
-            '<button mat-button  type="button" aria-hidden="true" class="close mat-button" data-notify="dismiss">  <i class="material-icons">close</i></button>' +
-            '<i class="material-icons" data-notify="icon">notifications</i> ' +
-            '<span data-notify="title">{1}</span> ' +
-            '<span data-notify="message">{2}</span>' +
-            '<div class="progress" data-notify="progressbar">' +
-              '<div class="progress-bar progress-bar-{0}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>' +
-            '</div>' +
-            '<a href="{3}" target="{4}" data-notify="url"></a>' +
-          '</div>'
-      });
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
+
+
+  constructor(public rest:RestService, private route: ActivatedRoute, private router: Router) {
+
+    // Assign the data to the data source for the table to render
+    this.dataSource = new MatTableDataSource();
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+    this.getInventarios()
   }
+
   ngOnInit() {
+    
+  }    
+
+  /**
+   * Set the paginator and sort after the view init since this component will
+   * be able to query its view for the initialized paginator and sort.
+   */
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 
+  applyFilter(filterValue: string) {
+    filterValue = filterValue.trim(); // Remove whitespace
+    filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
+    this.dataSource.filter = filterValue;
+  }
+
+  getInventarios() {
+    this.rest.getInventarios().subscribe((data: {}) => {
+      this.dataSource.data = data['data'];
+      console.log(data['data']);
+    });
+  }
 }

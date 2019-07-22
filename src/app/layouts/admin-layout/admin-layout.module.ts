@@ -22,6 +22,8 @@ import {
   MatSortModule,
   MatExpansionModule,
   MatRadioModule,
+  MatSelectModule,
+  MatIconModule,
 } from '@angular/material';
 
 @NgModule({
@@ -38,7 +40,9 @@ import {
     MatPaginatorModule,
     MatSortModule,
     MatExpansionModule,
-    MatRadioModule
+    MatRadioModule,
+    MatSelectModule,
+    MatIconModule
   ],
   declarations: [
     DashboardComponent,
