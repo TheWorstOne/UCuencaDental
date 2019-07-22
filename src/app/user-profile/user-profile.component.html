@@ -42,7 +42,7 @@
                               </mat-form-field>
 
                               <div class="row">
-                                <mat-form-field class="col-md-3">
+                                <mat-form-field *ngIf="product.categoria==1" class="col-md-3">
                                   <input name="MarcaId-{{rowIndex}}" matInput placeholder="Marca" [(ngModel)]="product.marca" required>
                                 </mat-form-field>
                                 <mat-form-field class="col-md-3">
