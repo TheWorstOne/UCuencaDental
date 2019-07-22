@@ -20,6 +20,8 @@ import {
   MatTableModule,
   MatPaginatorModule,
   MatSortModule,
+  MatExpansionModule,
+  MatRadioModule,
 } from '@angular/material';
 
 @NgModule({
@@ -35,6 +37,8 @@ import {
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatExpansionModule,
+    MatRadioModule
   ],
   declarations: [
     DashboardComponent,

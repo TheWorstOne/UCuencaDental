@@ -5,7 +5,7 @@ import {of} from "rxjs/observable/of";
 import { map, catchError, tap } from 'rxjs/operators';
 
 
-const endpoint = 'https://dentalcuenca.azurewebsites.net/';
+const endpoint = 'https://ucuencadental.azurewebsites.net/';
   const httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/json'
@@ -24,6 +24,11 @@ export class RestService {
 
   getProducts(): Observable<any> {
     return this.http.get(endpoint + 'producto/all').pipe(
+      map(this.extractData));
+  }
+
+  getEquipos(): Observable<any> {
+    return this.http.get(endpoint + 'equipos/all').pipe(
       map(this.extractData));
   }
 

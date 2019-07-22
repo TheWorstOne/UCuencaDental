@@ -18,3 +18,76 @@
   overflow: auto;
   max-height: 500px;
 }
+
+.example-radio-group {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.example-radio-button {
+  color: #F4F4F9 !important;  /*White Smoke */
+  margin: 5px;
+}
+
+.example-selected-value {
+  margin: 15px 0;
+}
+
+
+
+/***************************************************************/
+/* Mat Expansion CSS*/
+
+mat-expansion-panel-header {
+  padding-left: 0px;
+}
+
+mat-radio-button{
+  color: #F4F4F9 !important;  /*White Smoke */
+}
+
+.card-expansion {
+  background-color: #3E50B4; /*Violet Blue*/
+}
+
+h4.card-category{
+  color: #F4F4F9 !important;  /*White Smoke */
+}
+
+.mat-radio-label-content{
+  color: #F4F4F9 !important;  /*White Smoke */
+}
+
+
+/***************************************************************/
+/* Mat Rows&Columns CSS*/
+
+.mat-column-id {
+  flex: 0 0 5% !important;
+  width: 5% !important;
+}
+
+.mat-column-nombre {
+  flex: 0 0 15% !important;
+  width: 15% !important;
+}
+
+.mat-column-marca {
+  flex: 0 0 10% !important;
+  width: 10% !important;
+}
+
+.mat-column-fecha {
+  flex: 0 0 8% !important;
+  width: 8% !important;
+}
+
+.mat-column-stock {
+  flex: 0 0 5% !important;
+  width: 5% !important;
+}
+
+.mat-column-estado {
+  flex: 0 0 10% !important;
+  width: 10% !important;
+}
