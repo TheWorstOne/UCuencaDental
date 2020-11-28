@@ -37,7 +37,7 @@
                                 <textarea name="DescripcionId-{{rowIndex}}" matInput placeholder="Descripcion" [(ngModel)]="product.descripcion"></textarea>
                               </mat-form-field>
 
-                              <mat-form-field>
+                              <mat-form-field *ngIf="product.categoria!==2">
                                   <textarea name="ObservacionId-{{rowIndex}}" matInput placeholder="Observacion" [(ngModel)]="product.observacion"></textarea>
                               </mat-form-field>
 

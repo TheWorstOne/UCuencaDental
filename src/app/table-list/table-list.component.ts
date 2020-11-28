@@ -86,8 +86,8 @@ export class TableListComponent implements OnInit {
 
   controlInventario() {
     this.rest.controlInventario({"nombre": "Inventario "+new Date(),
-                                 "descripcion": "",
-                                 "observacion": ""
+                                 "descripcion": "Buenos dias profes",
+                                 "observacion": "Esta es una prueba"
                                             }).subscribe((result) => {
       console.log(result);
     }, (err) => {
